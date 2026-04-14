@@ -32,10 +32,10 @@ def describe_intern_quarters(game, first_visit):
     print(wrap(
         "You're in a tiny bunk room that smells like ozone and poor life choices. "
         "Motivational posters line the walls: 'SYNERGIZE YOUR MANA!' and "
-        "'HUSTLE LIKE A LICH'. A cot, a desk, and shattered dreams."
+        "'HUSTLE LIKE A LICH'. A cot, a desk cluttered with arcane junk, and shattered dreams."
     ))
     if "usb_wand" in ROOMS[game.room]["items"]:
-        alert("On the desk: a USB Wand, its LED blinking a sad red.")
+        dim("Something on the desk blinks a faint, melancholy red.")
     if first_visit:
         get_npc("dracos").say("greeting")
         game.set_flag("dracos_met")
@@ -49,7 +49,7 @@ def describe_corridor(game, first_visit):
         "suggest past interns didn't last long."
     ))
     if "goblin_repellent" in ROOMS[game.room]["items"]:
-        alert("A dented spray can on the floor: 'GOBLIN-B-GON (Best Before: 300 Years Ago)'.")
+        dim("It looks like someone dropped something in a hurry and never came back for it.")
     if first_visit:
         get_npc("dracos").say("corridor_intro")
     dim("Exits: NORTH (Bridge), EAST (Cafeteria), WEST (Engineering), SOUTH (Quarters).")
@@ -85,7 +85,7 @@ def describe_cafeteria(game, first_visit):
             "A faint smell of good cooking lingers warmly."
         ))
     if "space_cheese" in ROOMS[game.room]["items"]:
-        dim("A glowing wedge of cheese sits on a floating tray.")
+        dim("One of the drifting trays carries something that gives off a faint, warm glow.")
     dim("Exits: WEST (Corridor), SOUTH (Cargo Hold).")
 
 
@@ -96,7 +96,7 @@ def describe_engineering(game, first_visit):
         "A diagnostic screen reads: 'STATUS: Extremely Broken. Insert 1x Hyperdrive Crystal.'"
     ))
     if "enchanted_duct_tape" in ROOMS[game.room]["items"]:
-        alert("A roll of glowing duct tape sits on a workbench.")
+        dim("A cluttered workbench catches your eye — something among the tools shimmers faintly.")
     if first_visit:
         get_npc("dracos").say("engineering_intro")
     if game.check_flag("hyperdrive_fixed"):
@@ -112,7 +112,7 @@ def describe_armory(game, first_visit):
         "One display case has a crack in it."
     ))
     if "plasma_sword" in ROOMS[game.room]["items"]:
-        alert("Through the cracked case: a PLASMA SWORD glowing with mediocre intensity.")
+        dim("The cracked case catches the light — something inside is definitely still live.")
     if first_visit:
         get_npc("dracos").say("armory_intro")
     dim("Exits: SOUTH (Engineering).")
@@ -157,8 +157,8 @@ def describe_crystal_chamber(game, first_visit):
         "arcane energy. In the center, floating in a beam of light..."
     ))
     if not game.check_flag("crystal_obtained"):
-        alert("A massive HYPERDRIVE CRYSTAL pulses in its containment field.")
-        dim("Sign: 'CAUTION: Crystal removal requires Arcane Aptitude Check (DC 14).'")
+        dim("Something in the center of the room pulses slowly — the beam of light is hard to look at directly.")
+        dim("A small sign on the wall offers a warning in bureaucratic font.")
     else:
         dim("The containment field is empty. You already took the crystal.")
     dim("Exits: SOUTH (Airlock), NORTH (Escape Pods).")
@@ -216,5 +216,4 @@ def describe_room(game):
     for npc in get_room_npcs(room_id):
         npc.describe(game, first_visit)
 
-    _show_ground_items(game)
     game.status_bar()

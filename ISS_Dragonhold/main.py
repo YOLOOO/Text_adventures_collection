@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 ╔══════════════════════════════════════════════════════════════╗
-║           STATION QUEST: The Arcane Frontier                 ║
+║           ISS DRAGONHOLD: The Arcane Frontier                ║
 ║     A Campy Sci-Fantasy Text Adventure with Real Dice        ║
 ╚══════════════════════════════════════════════════════════════╝
 
@@ -20,9 +20,9 @@ def intro():
     print()
     print(f"{C.BOLD}{C.CYAN}")
     print("  ╔══════════════════════════════════════════════════════════╗")
-    print("  ║      ⚔️  STATION QUEST: The Arcane Frontier  🚀        ║")
+    print("  ║          ISS DRAGONHOLD: The Arcane Frontier             ║")
     print("  ║                                                          ║")
-    print("  ║   A Campy Sci-Fantasy Text Adventure with REAL DICE     ║")
+    print("  ║   A Campy Sci-Fantasy Text Adventure with REAL DICE      ║")
     print("  ╚══════════════════════════════════════════════════════════╝")
     print(f"{C.RESET}")
     print(f"  {C.YELLOW}You need: 4 six-sided dice (d6) and 1 twenty-sided die (d20){C.RESET}")
@@ -67,7 +67,7 @@ def main():
             break  # quit
 
     if game.game_over and game.won:
-        print(f"\n  {C.DIM}Thanks for playing Station Quest!{C.RESET}\n")
+        print(f"\n  {C.DIM}Thanks for playing ISS Dragonhold!{C.RESET}\n")
     elif game.game_over:
         print(f"\n  {C.DIM}Better luck next time, Intern.{C.RESET}\n")
 
