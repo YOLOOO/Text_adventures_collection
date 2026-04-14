@@ -111,6 +111,17 @@ class Dracos(NPC):
         "quit": [
             "Quitting? Coward.",
         ],
+        # Turn-limit warnings
+        "time_warning_50": [
+            "Structural note: 32 cycles until cheese impact. "
+            "Mild urgency is advised.",
+        ],
+        "time_warning_68": [
+            "14 cycles remaining. I'm not panicking. You should be panicking.",
+        ],
+        "time_warning_81": [
+            "One cycle left, ZAX. It was... adequate knowing you.",
+        ],
     }
 
     def get_line(self, context, index=0):

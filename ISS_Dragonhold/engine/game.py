@@ -96,4 +96,5 @@ class Game:
         room_name = ROOMS[self.room]["name"]
         npcs = [npc for npc in get_active_npcs(self.room, self) if npc.id != "dracos"]
         npc_part = " | " + ", ".join(npc.name for npc in npcs) if npcs else ""
-        print(f"\n  {C.DIM}HP:{self.hp}/{self.max_hp} | T:{self.turns} | {room_name}{npc_part}{C.RESET}")
+        from data.endings import TURN_LIMIT
+        print(f"\n  {C.DIM}HP:{self.hp}/{self.max_hp} | T:{self.turns}/{TURN_LIMIT} | {room_name}{npc_part}{C.RESET}")

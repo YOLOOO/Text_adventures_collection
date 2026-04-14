@@ -82,7 +82,26 @@ def process_command(game, raw):
         print(f"  {responses[game.turns % len(responses)]}")
 
     game.turns += 1
+    _check_turn_events(game)
     return True
+
+
+# ─── TURN EVENTS ──────────────────────────────────────────────────────────────
+
+def _check_turn_events(game):
+    """Fire DRACOS warnings and the cheese-collision ending at turn milestones."""
+    from data.endings import TURN_LIMIT, ending_cheese_collision
+    from npcs import get_npc
+    dracos = get_npc("dracos")
+
+    if game.turns == 50:
+        dracos.say("time_warning_50")
+    elif game.turns == 68:
+        dracos.say("time_warning_68")
+    elif game.turns == 81:
+        dracos.say("time_warning_81")
+    elif game.turns >= TURN_LIMIT and not game.game_over:
+        ending_cheese_collision(game)
 
 
 # ─── GO ───────────────────────────────────────────────────────────────────────

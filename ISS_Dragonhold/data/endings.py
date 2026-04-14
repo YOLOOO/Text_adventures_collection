@@ -13,6 +13,32 @@ from engine.dice import ask_d20
 from npcs import get_npc
 
 
+TURN_LIMIT = 82
+
+
+def ending_cheese_collision(game):
+    """Time ran out — the station hits Planet Fromage."""
+    from npcs import get_npc
+    game.game_over = True
+    game.won = False
+    game.ending = "cheese_collision"
+    print()
+    hr()
+    title_print("🧀 ENDING: You Are Fondue 🧀")
+    slow_print(wrap(
+        "The ISS Dragonhold slams into Planet Fromage at full speed. "
+        "The hull crumples. Every surface is immediately coated in "
+        "warm, gooey cheese. It smells amazing. You do not survive."
+    ), 0.02)
+    print()
+    slow_print(wrap(
+        "Somewhere in the wreckage, a speaker crackles one last time."
+    ), 0.02)
+    get_npc("dracos").say("time_warning_81")
+    print(f"\n  {C.DIM}THE END (Cheese Collision — {game.turns} turns){C.RESET}")
+    hr()
+
+
 def ending_launch_escape_pod(game):
     """The coward's way out — escape pod from Escape Pod Bay."""
     dragon_says(
