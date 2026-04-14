@@ -131,6 +131,51 @@ def cmd_look(game, target=""):
         describe_room(game)
         return
 
+    # Special: look desk in intern quarters
+    if target == "desk" and game.room == "intern_quarters":
+        if "usb_wand" in ROOMS[game.room]["items"]:
+            dim("Among the junk on the desk, you make out what looks like a wand — "
+                "its tip blinking red. Probably worth grabbing.")
+        else:
+            dim("Just a desk. Cluttered, sad, yours.")
+        return
+
+    # Special: look floor in corridor
+    if target == "floor" and game.room == "corridor":
+        if "goblin_repellent" in ROOMS[game.room]["items"]:
+            dim("You crouch down. A dented spray can — 'GOBLIN-B-GON'. "
+                "The best-before date is not reassuring. Still, might be useful.")
+        else:
+            dim("Just scorch marks and bad memories.")
+        return
+
+    # Special: look tray in cafeteria
+    if target == "tray" and game.room == "cafeteria":
+        if "space_cheese" in ROOMS[game.room]["items"]:
+            dim("One of the floating trays drifts close. On it sits a glowing wedge "
+                "of cheese — warm, humming faintly. Probably edible.")
+        else:
+            dim("Just empty trays drifting aimlessly. Tragic.")
+        return
+
+    # Special: look workbench in engineering
+    if target in ("workbench", "bench") and game.room == "engineering":
+        if "enchanted_duct_tape" in ROOMS[game.room]["items"]:
+            dim("Among the scattered tools, a roll of silver duct tape glows faintly "
+                "with runic script. Definitely enchanted. Definitely useful.")
+        else:
+            dim("Tools, components, and general chaos. Nothing stands out.")
+        return
+
+    # Special: look case in armory
+    if target == "case" and game.room == "armory":
+        if "plasma_sword" in ROOMS[game.room]["items"]:
+            dim("Through the crack in the display case you can clearly make out "
+                "a plasma sword. Glowing, functional, and technically reachable.")
+        else:
+            dim("The cracked case is empty. Someone beat you to it.")
+        return
+
     # Special: look window on bridge
     if target == "window" and game.room == "bridge":
         _look_window(game)
@@ -212,7 +257,8 @@ def cmd_take(game, arg):
     room_items = ROOMS[game.room]["items"]
     matched = None
     for item_id in room_items:
-        if arg in item_id or arg in item_name(item_id).lower():
+        aliases = ITEMS.get(item_id, {}).get("aliases", [])
+        if arg in item_id or arg in item_name(item_id).lower() or arg in aliases:
             matched = item_id
             break
 

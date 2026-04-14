@@ -22,6 +22,7 @@ ITEMS = {
     },
     "goblin_repellent": {
         "name": "Goblin Repellent (Expired)",
+        "aliases": ["can", "spray", "spray can"],
         "description": (
             "A spray can labeled 'GOBLIN-B-GON'. "
             "Expired 300 years ago. Smells like burnt toast and regret."
@@ -29,6 +30,7 @@ ITEMS = {
     },
     "enchanted_duct_tape": {
         "name": "Enchanted Duct Tape",
+        "aliases": ["tape", "duct tape"],
         "description": (
             "Silver duct tape covered in glowing runes. "
             "The label says 'Fixes anything. ANYTHING.' It's not lying."
@@ -36,6 +38,7 @@ ITEMS = {
     },
     "space_cheese": {
         "name": "Wedge of Space Cheese",
+        "aliases": ["wedge", "cheese"],
         "description": (
             "A surprisingly appetizing chunk of cheese from the planet "
             "you're about to crash into. It hums softly."
@@ -43,6 +46,7 @@ ITEMS = {
     },
     "plasma_sword": {
         "name": "Plasma Sword of Adequate Quality",
+        "aliases": ["sword", "plasma sword"],
         "description": (
             "A glowing blade. The hilt reads: "
             "'3.5 / 5 stars — Adequate for most combat situations. — Wizard Weekly'"
