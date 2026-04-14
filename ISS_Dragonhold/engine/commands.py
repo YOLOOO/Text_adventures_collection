@@ -6,7 +6,7 @@ The main game loop calls process_command() each turn.
 """
 
 from engine.display import info, dim, success, danger, C
-from engine.dice import ask_d20, ask_4d6
+from engine.dice import ask_d20
 from data.rooms import ROOMS, MOVEMENT_DCS, BLOCKED_PATHS
 from data.items import ITEMS, item_name
 from data.item_uses import USE_HANDLERS
@@ -380,7 +380,7 @@ def cmd_inventory(game):
     if not game.inventory:
         print("  Your pockets are tragically empty.")
     else:
-        print(f"\n  {C.BOLD}🎒 INVENTORY:{C.RESET}")
+        print(f"\n  {C.BOLD}INVENTORY:{C.RESET}")
         for item in game.inventory:
             flag = ""
             if item == "usb_wand" and game.check_flag("wand_charged"):
@@ -459,7 +459,7 @@ def show_help():
 
   {C.BOLD}━━━ DICE ━━━{C.RESET}
   {C.YELLOW}d20{C.RESET}   Skill checks, attacks, persuasion, EVERYTHING
-  {C.YELLOW}4d6{C.RESET}   Damage, healing, loot quality
+  {C.YELLOW}2d6{C.RESET}   Damage, healing, loot quality
   {C.DIM}Nat 20 = Critical Success  |  Nat 1 = Critical Failure{C.RESET}
 
   {C.BOLD}━━━ GOAL ━━━{C.RESET}

@@ -7,7 +7,7 @@ Can be fought or zapped with a charged USB wand.
 
 from npcs.base import NPC
 from engine.display import info, dim, danger, success, hr, C
-from engine.dice import ask_d20, ask_4d6
+from engine.dice import ask_d20, ask_2d6
 
 
 class Turret(NPC):
@@ -46,7 +46,7 @@ class Turret(NPC):
             info("You aim your charged USB Wand at the spell-turret!")
             roll = ask_d20("Arcane Attack vs. Turret")
             if roll >= 10 or roll == 20:
-                total, _ = ask_4d6("Magical damage!")
+                total, _ = ask_2d6("Magical damage!")
                 success(f"ZAP! {total} damage! The turret explodes in sparks!")
                 game.set_flag("turret_disabled")
             else:
@@ -93,7 +93,7 @@ class Turret(NPC):
                 if game.has("plasma_sword"):
                     dc = 9
                 if roll >= dc or roll == 20:
-                    total, _ = ask_4d6("Damage!")
+                    total, _ = ask_2d6("Damage!")
                     bonus = 5 if game.has("plasma_sword") else 0
                     dmg = total + bonus
                     if roll == 20:

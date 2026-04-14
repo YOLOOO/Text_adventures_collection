@@ -7,7 +7,7 @@
 
 Run:  python3 main.py
 
-You need: 4 six-sided dice (d6) and 1 twenty-sided die (d20)
+You need: 2 six-sided dice (d6) and 1 twenty-sided die (d20)
 """
 
 from engine.display import C, wrap, hr, slow_print
@@ -25,7 +25,7 @@ def intro():
     print("  ║   A Campy Sci-Fantasy Text Adventure with REAL DICE      ║")
     print("  ╚══════════════════════════════════════════════════════════╝")
     print(f"{C.RESET}")
-    print(f"  {C.YELLOW}You need: 4 six-sided dice (d6) and 1 twenty-sided die (d20){C.RESET}")
+    print(f"  {C.YELLOW}You need: 2 six-sided dice (d6) and 1 twenty-sided die (d20){C.RESET}")
     print(f"  {C.DIM}Type 'help' for commands. Roll your real dice when prompted!{C.RESET}")
     hr()
     slow_print(wrap(

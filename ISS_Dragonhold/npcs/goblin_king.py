@@ -10,7 +10,7 @@ Located in the Cargo Hold. Can be:
 
 from npcs.base import NPC
 from engine.display import info, dim, danger, success, alert, hr, C
-from engine.dice import ask_d20, ask_4d6
+from engine.dice import ask_d20, ask_2d6
 
 
 class GoblinKing(NPC):
@@ -160,7 +160,7 @@ class GoblinKing(NPC):
                 if game.has("plasma_sword"):
                     dc = 8
                 if roll >= dc or roll == 20:
-                    total, _ = ask_4d6("Damage!")
+                    total, _ = ask_2d6("Damage!")
                     bonus = 4 if game.has("plasma_sword") else 0
                     bonus += 3 if game.check_flag("wand_charged") else 0
                     dmg = total + bonus

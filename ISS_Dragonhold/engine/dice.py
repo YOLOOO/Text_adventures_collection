@@ -33,9 +33,9 @@ def ask_d20(reason):
             print("  Enter a number between 1 and 20.")
 
 
-def ask_4d6(reason):
+def ask_2d6(reason):
     """
-    Prompt the player to roll their 4 physical d6.
+    Prompt the player to roll their 2 physical d6.
 
     Args:
         reason: Why they're rolling.
@@ -43,14 +43,14 @@ def ask_4d6(reason):
     Returns:
         tuple: (total: int, dice: list[int])
     """
-    print(f"\n  {C.BOLD}{C.BLUE}🎲 ROLL YOUR 4d6!{C.RESET}")
+    print(f"\n  {C.BOLD}{C.BLUE}🎲 ROLL YOUR 2d6!{C.RESET}")
     dim(f"Reason: {reason}")
 
     dice = []
-    for i in range(4):
+    for i in range(2):
         while True:
             try:
-                val = int(input(f"  {C.BLUE}Die {i + 1} of 4 (1-6): {C.RESET}").strip())
+                val = int(input(f"  {C.BLUE}Die {i + 1} of 2 (1-6): {C.RESET}").strip())
                 if 1 <= val <= 6:
                     dice.append(val)
                     break
@@ -59,7 +59,7 @@ def ask_4d6(reason):
                 print("  Enter a number between 1 and 6.")
 
     total = sum(dice)
-    _announce_4d6(dice, total)
+    _announce_2d6(dice, total)
     return total, dice
 
 
@@ -78,13 +78,13 @@ def _announce_d20(val):
         print(f"  {C.RED}Rolled {val} — yikes.{C.RESET}")
 
 
-def _announce_4d6(dice, total):
+def _announce_2d6(dice, total):
     result_str = " + ".join(str(d) for d in dice)
-    if total >= 20:
+    if total == 12:
         success(f"[{result_str}] = {total} — Magnificent!")
-    elif total >= 14:
-        print(f"  {C.GREEN}[{result_str}] = {total} — Nice roll!{C.RESET}")
     elif total >= 9:
+        print(f"  {C.GREEN}[{result_str}] = {total} — Nice roll!{C.RESET}")
+    elif total >= 6:
         print(f"  {C.YELLOW}[{result_str}] = {total} — Could be worse.{C.RESET}")
     else:
         print(f"  {C.RED}[{result_str}] = {total} — The dice gods frown upon you.{C.RESET}")

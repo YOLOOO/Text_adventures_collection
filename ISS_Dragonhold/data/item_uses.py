@@ -14,7 +14,7 @@ Return True if the action consumed a turn, False otherwise.
 """
 
 from engine.display import info, dim, success, danger, dragon_says
-from engine.dice import ask_d20, ask_4d6
+from engine.dice import ask_d20, ask_2d6
 from data.items import item_name
 from npcs import get_npc
 
@@ -56,7 +56,7 @@ def use_usb_wand(game):
 def use_space_cheese(game):
     """Eat the cheese for healing (NPC uses are handled by NPC.use_item)."""
     info("You take a bite of space cheese.")
-    total, _ = ask_4d6("Cheese healing power")
+    total, _ = ask_2d6("Cheese healing power")
     heal_amount = total // 3
     if heal_amount > 0:
         game.heal(heal_amount)
@@ -115,7 +115,7 @@ def use_plasma_sword(game):
 
 def use_ghost_cookbook(game):
     info("You flip through translucent recipes: 'Ectoplasmic Risotto', 'Soul Soufflé'...")
-    total, _ = ask_4d6("Culinary inspiration healing")
+    total, _ = ask_2d6("Culinary inspiration healing")
     heal_amount = total // 4
     if heal_amount > 0:
         game.heal(heal_amount)
