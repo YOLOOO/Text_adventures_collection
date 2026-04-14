@@ -189,12 +189,19 @@ def cmd_look(game, target=""):
             dim("Very broken. Needs a Hyperdrive Crystal and duct tape.")
         return
 
-    # Special: look crystal in crystal chamber
-    if target in ("crystal", "hyperdrive") and game.room == "crystal_chamber":
+    # Special: look crystal/center/beam in crystal chamber
+    if target in ("crystal", "hyperdrive", "center", "beam", "light") and game.room == "crystal_chamber":
         if not game.check_flag("crystal_obtained"):
-            dim("The Hyperdrive Crystal. Massive, pulsing. TAKE CRYSTAL to attempt extraction.")
+            dim("A Hyperdrive Crystal, suspended in a containment beam. "
+                "Massive. Pulsing. You could TAKE CRYSTAL to attempt extraction.")
         else:
             dim("The containment field is empty.")
+        return
+
+    # Special: look sign/wall in crystal chamber
+    if target in ("sign", "wall") and game.room == "crystal_chamber":
+        dim("The sign reads: 'CAUTION — Crystal removal requires Arcane Aptitude Check (DC 14). "
+            "Unauthorized extraction may result in: mild tingling, severe tingling, or death.'")
         return
 
     # Check NPC
