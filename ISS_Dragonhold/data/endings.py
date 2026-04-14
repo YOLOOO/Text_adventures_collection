@@ -77,9 +77,19 @@ def ending_activate_hyperdrive(game):
         get_npc("dracos").say("hyperdrive_not_fixed")
         return
 
+    if not game.check_flag("activation_code_given"):
+        get_npc("dracos").say("code_not_given")
+        return
+
+    info("Enter 4-digit activation code:")
+    entered = input(f"  {C.BOLD}{C.CYAN}Code> {C.RESET}").strip()
+    if entered != game.activation_code:
+        get_npc("dracos").say("wrong_code")
+        return
+
     dragon_says(
-        "Hyperdrive online! Initiating jump! But I need you to calibrate "
-        "the final coordinates. Roll well or we jump into a star."
+        "Code accepted. Hyperdrive spooling up! But I need you to "
+        "calibrate final coordinates. Roll well or we jump into a star."
     )
 
     info("🌟 FINAL CALIBRATION — Arcane Navigation Check!")

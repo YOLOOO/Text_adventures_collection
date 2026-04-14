@@ -111,6 +111,16 @@ class Dracos(NPC):
         "quit": [
             "Quitting? Coward.",
         ],
+        # Activation code
+        "code_not_given": [
+            "Activation requires a 4-digit code. I have it. TALK to me.",
+        ],
+        "wrong_code": [
+            "Wrong. Remarkable.",
+        ],
+        "already_has_code": [
+            "You already have it. GO.",
+        ],
         # Turn-limit warnings
         "time_warning_50": [
             "Structural note: 32 cycles until cheese impact. "
@@ -140,8 +150,22 @@ class Dracos(NPC):
     # ─── NPC Interface ────────────────────────────────────────────────────
 
     def talk(self, game):
-        dragon_says(self.get_line("bridge_talk"))
+        if game.check_flag("hyperdrive_fixed"):
+            if not game.check_flag("activation_code_given"):
+                self._give_activation_code(game)
+            else:
+                from engine.display import dim
+                dim(f"You already have it: {game.activation_code}. GO.")
+        else:
+            dragon_says(self.get_line("bridge_talk"))
         return True
+
+    def _give_activation_code(self, game):
+        dragon_says(
+            f"Oh, do you want the code? How precious. Fine: "
+            f"{game.activation_code}. Don't make me repeat myself."
+        )
+        game.set_flag("activation_code_given")
 
     def look(self, game):
         dim("DRACOS is everywhere. It's the station. It's the speakers. It's judging you.")

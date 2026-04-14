@@ -5,6 +5,7 @@ Holds the player's HP, inventory, room, flags, and turn counter.
 All game state lives here so it can be passed around cleanly.
 """
 
+import random
 from engine.display import danger, success, hr, dragon_says
 
 
@@ -19,6 +20,7 @@ class Game:
         self.game_over = False
         self.won = False
         self.ending = ""
+        self.activation_code = f"{random.randint(0, 9999):04d}"
 
         # Flags track story progress. Any system can read/write these.
         # Add new flags here as you add content.
@@ -29,6 +31,7 @@ class Game:
             "goblins_defeated": False,
             "crystal_obtained": False,
             "hyperdrive_fixed": False,
+            "activation_code_given": False,
             "dracos_met": False,
             "goblin_king_alive": True,
             "spoke_to_ghost": False,
