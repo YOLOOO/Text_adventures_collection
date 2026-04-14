@@ -443,28 +443,27 @@ def cmd_fight(game, target=""):
 def show_help():
     print(f"""
   {C.BOLD}━━━ COMMANDS ━━━{C.RESET}
-  {C.CYAN}go [direction]{C.RESET}     Move (north/south/east/west or n/s/e/w)
-  {C.CYAN}look{C.RESET}               Look around the room
-  {C.CYAN}look [thing]{C.RESET}       Examine something specific
-  {C.CYAN}take [item]{C.RESET}        Pick up an item
-  {C.CYAN}use [item]{C.RESET}         Use an item from inventory
-  {C.CYAN}talk [someone]{C.RESET}     Talk to a character
-  {C.CYAN}fight [enemy]{C.RESET}      Attack an enemy
-  {C.CYAN}inventory / i{C.RESET}      Check your stuff
-  {C.CYAN}activate{C.RESET}           Fire the hyperdrive (Bridge only)
-  {C.CYAN}launch{C.RESET}             Launch escape pod (Escape Pod Bay)
-  {C.CYAN}status{C.RESET}             Check your HP
-  {C.CYAN}help{C.RESET}               This screen
-  {C.CYAN}quit{C.RESET}               Give up
+  {C.CYAN}go [dir]{C.RESET}     Move N/S/E/W
+  {C.CYAN}look{C.RESET}         Look around
+  {C.CYAN}look [x]{C.RESET}     Examine something
+  {C.CYAN}take [x]{C.RESET}     Pick up an item
+  {C.CYAN}use [x]{C.RESET}      Use from inventory
+  {C.CYAN}talk [x]{C.RESET}     Talk to a character
+  {C.CYAN}fight [x]{C.RESET}    Attack an enemy
+  {C.CYAN}inv / i{C.RESET}      Check your stuff
+  {C.CYAN}activate{C.RESET}     Hyperdrive (Bridge only)
+  {C.CYAN}launch{C.RESET}       Launch escape pod
+  {C.CYAN}status{C.RESET}       Check your HP
+  {C.CYAN}quit{C.RESET}         Give up
 
   {C.BOLD}━━━ DICE ━━━{C.RESET}
-  {C.YELLOW}d20{C.RESET}   Skill checks, attacks, persuasion, EVERYTHING
-  {C.YELLOW}2d6{C.RESET}   Damage, healing, loot quality
-  {C.DIM}Nat 20 = Critical Success  |  Nat 1 = Critical Failure{C.RESET}
+  {C.YELLOW}d20{C.RESET}  Checks, attacks, all rolls
+  {C.YELLOW}2d6{C.RESET}  Damage and healing
+  {C.DIM}Nat 20 = Crit  |  Nat 1 = Fail{C.RESET}
 
   {C.BOLD}━━━ GOAL ━━━{C.RESET}
-  {C.DIM}Find the Hyperdrive Crystal → Fix the Hyperdrive → Activate from Bridge{C.RESET}
-  {C.DIM}Or find Escape Pods for... an alternative ending.{C.RESET}
+  {C.DIM}Crystal → Fix Drive → Bridge → ACTIVATE{C.RESET}
+  {C.DIM}Or find Escape Pods for an alt ending.{C.RESET}
 """)
 
 

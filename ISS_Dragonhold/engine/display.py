@@ -23,7 +23,7 @@ class C:
     WHITE   = "\033[97m"
     RESET   = "\033[0m"
 
-WRAP_WIDTH = 70
+WRAP_WIDTH = 58
 
 # ─── Utility Functions ────────────────────────────────────────────────────────
 
@@ -55,19 +55,26 @@ def room_print(name):
 
 def dragon_says(text):
     """DRACOS the AI dragon speaks."""
-    print(f"\n  {C.MAGENTA}{C.BOLD}🐉 DRACOS:{C.RESET}{C.MAGENTA} \"{wrap(text)}\"{C.RESET}")
+    filled = textwrap.fill(text, width=WRAP_WIDTH - 2, subsequent_indent="  ")
+    print(f"\n  {C.MAGENTA}{C.BOLD}🐉 DRACOS:{C.RESET}")
+    print(f"  {C.MAGENTA}\"{filled}\"{C.RESET}")
 
 def alert(text):
-    print(f"\n  {C.YELLOW}⚡ {wrap(text)}{C.RESET}")
+    filled = textwrap.fill(text, width=WRAP_WIDTH - 4, subsequent_indent="    ")
+    print(f"  {C.YELLOW}⚡ {filled}{C.RESET}")
 
 def danger(text):
-    print(f"\n  {C.RED}☠  {wrap(text)}{C.RESET}")
+    filled = textwrap.fill(text, width=WRAP_WIDTH - 4, subsequent_indent="    ")
+    print(f"\n  {C.RED}☠  {filled}{C.RESET}")
 
 def success(text):
-    print(f"\n  {C.GREEN}✨ {wrap(text)}{C.RESET}")
+    filled = textwrap.fill(text, width=WRAP_WIDTH - 4, subsequent_indent="    ")
+    print(f"  {C.GREEN}✨ {filled}{C.RESET}")
 
 def info(text):
-    print(f"\n  {C.CYAN}{wrap(text)}{C.RESET}")
+    filled = textwrap.fill(text, width=WRAP_WIDTH - 2, subsequent_indent="  ")
+    print(f"  {C.CYAN}{filled}{C.RESET}")
 
 def dim(text):
-    print(f"  {C.DIM}{wrap(text)}{C.RESET}")
+    filled = textwrap.fill(text, width=WRAP_WIDTH - 2, subsequent_indent="  ")
+    print(f"  {C.DIM}{filled}{C.RESET}")

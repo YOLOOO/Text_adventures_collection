@@ -20,73 +20,70 @@ class Dracos(NPC):
 
     DIALOG = {
         "greeting": [
-            "Ah, you're awake. I am DRACOS, the station's Distributed Recursive "
-            "Arcane Computing Operating System. I am also a dragon. Do not question this.",
+            "Awake at last. I am DRACOS — station AI. Also a dragon. "
+            "Don't question it.",
         ],
         "bridge_intro": [
-            "Welcome to MY bridge. I am the captain, the navigator, "
-            "and the entertainment system. We will crash into Planet Fromage "
-            "in approximately 'not long'. Fix the hyperdrive.",
+            "MY bridge. Captain, navigator, entertainment system — all me. "
+            "ETA to Planet Fromage: 'not long'. Fix the hyperdrive.",
         ],
         "bridge_talk": [
-            "Yes, hello. What do you want? Status update: still crashing. "
-            "Fix the hyperdrive. It needs a crystal from the Crystal Chamber. "
-            "Through the Airlock. Simple. For someone competent.",
+            "Still crashing. Get the crystal from the Crystal Chamber "
+            "(through the Airlock), fix the drive in Engineering, "
+            "then ACTIVATE from here. Simple.",
         ],
         "corridor_intro": [
-            "This corridor has claimed 47 interns. You are intern #48. No pressure.",
+            "This corridor has claimed 47 interns. You are #48. No pressure.",
         ],
         "cafeteria_intro": [
-            "That's Chef Pierre. He died in a fondue accident. He's still bitter about it.",
+            "Chef Pierre. Died in a fondue accident. Still bitter.",
         ],
         "engineering_intro": [
-            "Ah, Engineering. Where dreams go to catch fire. Sometimes literally.",
+            "Engineering. Where dreams catch fire. Sometimes literally.",
         ],
         "armory_intro": [
-            "I should mention you are Level 2. Most of these weapons "
-            "would vaporize your hands. Stick to the cracked case.",
+            "You're Level 2. Most weapons here would vaporize your hands. "
+            "Stick to the cracked case.",
         ],
         "airlock_intro": [
-            "The goblins arrived two weeks ago. They've been eating the hull insulation "
-            "and leaving reviews on Yelp. One star. Very rude.",
+            "Goblins arrived two weeks ago. Eating hull insulation. "
+            "Yelp reviews: one star.",
         ],
         "cargo_hold_intro": [
-            "The goblins moved in, redecorated, and filed for squatter's rights. "
-            "I'd remove them myself but I don't have arms. On account of being software.",
+            "They filed for squatter's rights. I'd help but — software. No arms.",
         ],
         "escape_pod": [
-            "Oh, the escape pods. You COULD leave. Abandon the station. Abandon ME. "
-            "I wouldn't be hurt. I'm software. Software doesn't have feelings. "
-            "...I have feelings.",
+            "You COULD leave. Abandon the station. Abandon me. "
+            "Software doesn't have feelings. ...I have feelings.",
         ],
         # Combat commentary
         "turret_destroyed": [
-            "Well done. The armory is now accessible. Try not to break anything.",
+            "Armory accessible. Try not to break anything.",
         ],
         "ghost_defeated_fight": [
             "You destroyed a culinary ghost. Food quality somehow got worse.",
         ],
         "ghost_appeased": [
-            "He died in fondue and found peace in fondue. Poetic.",
+            "Died in fondue. Found peace in fondue. Poetic.",
         ],
         "goblins_defeated": [
-            "The goblin menace is dealt with. Through violence. Traditional.",
+            "Goblin menace dealt with. Through violence. Traditional.",
         ],
         "goblins_befriended": [
             "You befriended goblins with dairy. Unbelievable.",
         ],
         "wand_charged": [
-            "Oh. You actually did something competent. Mark the calendar.",
+            "You did something competent. Mark the calendar.",
         ],
         "hyperdrive_fixed": [
-            "You fixed a hyperdrive with duct tape. I am horrified AND impressed. "
-            "Now get to the Bridge and ACTIVATE the jump!",
+            "Fixed with duct tape. Horrified AND impressed. "
+            "Bridge → ACTIVATE!",
         ],
         "hyperdrive_not_fixed": [
-            "The hyperdrive isn't fixed yet, you absolute walnut. Go to Engineering.",
+            "Hyperdrive not fixed yet, walnut. Go to Engineering.",
         ],
         "crystal_obtained": [
-            "Now bring that to Engineering. Fix my hyperdrive. Chop chop.",
+            "Engineering. Fix my hyperdrive. Chop chop.",
         ],
         # Nat 20 / Nat 1 flavor
         "crit_success_move": [
@@ -99,7 +96,7 @@ class Dracos(NPC):
             "Your powers of observation are... limited.",
         ],
         "perception_meh": [
-            "Look harder next time. There was something useful out there.",
+            "Look harder. Something useful was out there.",
         ],
         # Generic snark
         "miss_stationary": [
@@ -112,7 +109,7 @@ class Dracos(NPC):
             "Adequate. Like everything about you.",
         ],
         "quit": [
-            "Quitting? Coward. Come back when you've found your courage.",
+            "Quitting? Coward.",
         ],
     }
 

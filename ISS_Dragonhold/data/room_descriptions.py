@@ -30,9 +30,9 @@ def _show_ground_items(game):
 
 def describe_intern_quarters(game, first_visit):
     print(wrap(
-        "You're in a tiny bunk room that smells like ozone and poor life choices. "
-        "Motivational posters line the walls: 'SYNERGIZE YOUR MANA!' and "
-        "'HUSTLE LIKE A LICH'. A cot, a desk cluttered with arcane junk, and shattered dreams."
+        "Tiny bunk room. Ozone smell, bad life choices. Posters: "
+        "'SYNERGIZE YOUR MANA!' and 'HUSTLE LIKE A LICH'. "
+        "Cot, cluttered desk, shattered dreams."
     ))
     if "usb_wand" in ROOMS[game.room]["items"]:
         dim("Something on the desk blinks a faint, melancholy red.")
@@ -44,9 +44,8 @@ def describe_intern_quarters(game, first_visit):
 
 def describe_corridor(game, first_visit):
     print(wrap(
-        "A long hallway lit by BOTH flickering torches AND fluorescent tubes — "
-        "because nobody could agree on an aesthetic. Scorch marks on the walls "
-        "suggest past interns didn't last long."
+        "Mixed-vibe hallway: flickering torches AND fluorescents. "
+        "Scorch marks suggest previous interns fared poorly."
     ))
     if "goblin_repellent" in ROOMS[game.room]["items"]:
         dim("It looks like someone dropped something in a hurry and never came back for it.")
@@ -57,9 +56,8 @@ def describe_corridor(game, first_visit):
 
 def describe_bridge(game, first_visit):
     print(wrap(
-        "Half spaceship command center, half medieval throne room. A viewscreen "
-        "dominates the far wall, showing a planet made entirely of cheese growing "
-        "ALARMINGLY close. Warning lights flash everywhere."
+        "Command center meets throne room. Viewscreen shows a cheese "
+        "planet — ALARMINGLY close. Warning lights flash everywhere."
     ))
     if first_visit:
         get_npc("dracos").say("bridge_intro")
@@ -73,16 +71,15 @@ def describe_bridge(game, first_visit):
 def describe_cafeteria(game, first_visit):
     if not game.check_flag("cafeteria_cleared"):
         print(wrap(
-            "Trays float. Soup ladles stir themselves. A translucent chef in a tall "
-            "hat glares at you from behind the counter, gripping a spectral rolling pin. "
-            "The whole place reeks of ectoplasmic bouillabaisse."
+            "Floating trays. Self-stirring ladles. A translucent chef "
+            "glares from behind the counter, spectral rolling pin in hand. "
+            "Reeks of ectoplasmic bouillabaisse."
         ))
         if first_visit:
             get_npc("dracos").say("cafeteria_intro")
     else:
         print(wrap(
-            "The cafeteria is peaceful now. Trays have settled. "
-            "A faint smell of good cooking lingers warmly."
+            "Peaceful now. Trays settled. Faint smell of good cooking."
         ))
     if "space_cheese" in ROOMS[game.room]["items"]:
         dim("One of the drifting trays carries something that gives off a faint, warm glow.")
@@ -91,9 +88,8 @@ def describe_cafeteria(game, first_visit):
 
 def describe_engineering(game, first_visit):
     print(wrap(
-        "Bubbling cauldrons sit next to server racks. The hyperdrive — a massive "
-        "crystal-powered engine — sparks feebly in the center. "
-        "A diagnostic screen reads: 'STATUS: Extremely Broken. Insert 1x Hyperdrive Crystal.'"
+        "Cauldrons beside server racks. The hyperdrive sparks feebly "
+        "in the center. Screen: 'STATUS: Extremely Broken. Need 1x Crystal.'"
     ))
     if "enchanted_duct_tape" in ROOMS[game.room]["items"]:
         dim("A cluttered workbench catches your eye — something among the tools shimmers faintly.")
@@ -106,10 +102,8 @@ def describe_engineering(game, first_visit):
 
 def describe_armory(game, first_visit):
     print(wrap(
-        "Weapon racks line every wall — laser staves, enchanted blasters, "
-        "a suspicious number of cursed sporks. Most are locked behind glass "
-        "with a sign: 'FOR AUTHORIZED WIZARDS ONLY (Level 5+).' "
-        "One display case has a crack in it."
+        "Weapons everywhere: laser staves, blasters, cursed sporks. "
+        "All locked — 'Level 5+ only.' One display case has a crack."
     ))
     if "plasma_sword" in ROOMS[game.room]["items"]:
         dim("The cracked case catches the light — something inside is definitely still live.")
@@ -120,9 +114,8 @@ def describe_armory(game, first_visit):
 
 def describe_airlock(game, first_visit):
     print(wrap(
-        "A reinforced chamber with a big red button labeled "
-        "'DO NOT PRESS (unless you want to die).' Through the window, "
-        "space goblins cling to the hull like sparkly barnacles."
+        "Reinforced chamber. Big red button: 'DO NOT PRESS'. "
+        "Space goblins cling to the hull outside."
     ))
     if first_visit:
         get_npc("dracos").say("airlock_intro")
@@ -132,19 +125,16 @@ def describe_airlock(game, first_visit):
 def describe_cargo_hold(game, first_visit):
     if game.check_flag("goblins_befriended"):
         print(wrap(
-            "The cargo hold has been transformed into a cozy goblin village. "
-            "Tiny fires burn in circuit-board fire pits. Goblins wave cheerfully."
+            "Cozy goblin village. Circuit-board fire pits, cheerful waving."
         ))
     elif game.check_flag("goblins_defeated"):
         print(wrap(
-            "The cargo hold is quiet. Scattered goblin belongings litter the floor."
+            "Quiet now. Scattered goblin belongings litter the floor."
         ))
     else:
         print(wrap(
-            "The cargo hold has been converted into a GOBLIN NEST. Dozens of "
-            "glowing-eyed space goblins chitter from behind barricades. "
-            "Their king — wearing a crown of circuit boards — "
-            "sits on a throne of packing peanuts."
+            "GOBLIN NEST. Glowing-eyed goblins chitter from behind barricades. "
+            "Their king — circuit-board crown — sits on a packing-peanut throne."
         ))
         if first_visit:
             get_npc("dracos").say("cargo_hold_intro")
@@ -153,8 +143,8 @@ def describe_cargo_hold(game, first_visit):
 
 def describe_crystal_chamber(game, first_visit):
     print(wrap(
-        "A vast spherical chamber lined with crystalline formations that hum with "
-        "arcane energy. In the center, floating in a beam of light..."
+        "Spherical chamber lined with humming crystals. "
+        "In the center, floating in a beam of light..."
     ))
     if not game.check_flag("crystal_obtained"):
         dim("Something in the center of the room pulses slowly — the beam of light is hard to look at directly.")

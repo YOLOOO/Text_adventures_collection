@@ -10,36 +10,34 @@ Run:  python3 main.py
 You need: 2 six-sided dice (d6) and 1 twenty-sided die (d20)
 """
 
-from engine.display import C, wrap, hr, slow_print
+from engine.display import C, WRAP_WIDTH, wrap, hr, slow_print
 from engine.game import Game
 from engine.commands import process_command
 from data.room_descriptions import describe_room
 
 
 def intro():
+    W = WRAP_WIDTH - 4
     print()
     print(f"{C.BOLD}{C.CYAN}")
-    print("  ╔══════════════════════════════════════════════════════════╗")
-    print("  ║          ISS DRAGONHOLD: The Arcane Frontier             ║")
-    print("  ║                                                          ║")
-    print("  ║   A Campy Sci-Fantasy Text Adventure with REAL DICE      ║")
-    print("  ╚══════════════════════════════════════════════════════════╝")
+    print(f"  ╔{'═' * W}╗")
+    print(f"  ║{'ISS DRAGONHOLD: The Arcane Frontier'.center(W)}║")
+    print(f"  ║{'Sci-Fantasy Text Adventure + REAL DICE'.center(W)}║")
+    print(f"  ╚{'═' * W}╝")
     print(f"{C.RESET}")
-    print(f"  {C.YELLOW}You need: 2 six-sided dice (d6) and 1 twenty-sided die (d20){C.RESET}")
-    print(f"  {C.DIM}Type 'help' for commands. Roll your real dice when prompted!{C.RESET}")
+    print(f"  {C.YELLOW}You need: 2d6 and 1d20{C.RESET}")
+    print(f"  {C.DIM}Type 'help' for commands. Roll dice when prompted!{C.RESET}")
     hr()
     slow_print(wrap(
-        "You are ZAX, a Level 2 Intern Wizard. You were studying for your "
-        "Arcane Certification Exam when a rogue teleportation spell zapped you "
-        "onto the ISS DRAGONHOLD — a derelict space station that was once a "
-        "floating wizard academy. It's infested with space goblins, haunted "
-        "by a ghost chef, and hurtling toward a planet made entirely of cheese."
+        "You are ZAX, Level 2 Intern Wizard. A rogue teleportation spell "
+        "zapped you onto the ISS DRAGONHOLD — a derelict space station, "
+        "once a floating wizard academy. Now infested with space goblins, "
+        "haunted by a ghost chef, and hurtling toward a cheese planet."
     ), 0.02)
     print()
     slow_print(wrap(
-        "The station's AI — DRACOS — insists it's a dragon. The hyperdrive "
-        "is broken. And somehow YOU need to fix everything before you become "
-        "one with the fondue."
+        "The station AI — DRACOS — insists it's a dragon. The hyperdrive "
+        "is broken. Fix it before you become fondue."
     ), 0.02)
     print()
     slow_print(f"  {C.BOLD}Good luck, Intern. Grab your dice.{C.RESET}", 0.03)

@@ -67,9 +67,9 @@ def ask_2d6(reason):
 
 def _announce_d20(val):
     if val == 20:
-        success("⚔️  NATURAL 20! CRITICAL SUCCESS!")
+        success("NATURAL 20! CRITICAL SUCCESS!")
     elif val == 1:
-        danger("💀 NATURAL 1! CRITICAL FAILURE!")
+        danger("NATURAL 1! CRITICAL FAILURE!")
     elif val >= 15:
         print(f"  {C.GREEN}Rolled {val} — solid!{C.RESET}")
     elif val >= 10:
